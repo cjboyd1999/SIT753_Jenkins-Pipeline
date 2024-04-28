@@ -25,7 +25,7 @@ pipeline {
                     mail to: "cheeseburger199@gmail.com"
                     subject: "Integration Test Status Email"
                     body: "Integration tests passed by $TESTER."
-                    print("Email sent!")
+                    // print("Email sent!")
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
                     mail to: "cheeseburger199@gmail.com"
                     subject: "Security Scan Status Email"
                     body: "$SCANNER found no vulnerabilities within the application."
-                    print("Email sent!")
+                    // print("Email sent!")
                 }
             }
         }
