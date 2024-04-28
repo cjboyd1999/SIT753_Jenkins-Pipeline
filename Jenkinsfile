@@ -49,10 +49,11 @@ pipeline {
                 print("Deploying the application to the staging server: $STAGE_SRV")
             }
         }
-        stage('Integration Tests on Staging')
+        stage('Integration Tests on Staging'){
             steps{
                 print("Runing unit tests on $STAGE_SRV with $STAGE_TESTER")
             }
+        }
         stage('Deploy to Production'){
             steps{
                 print("Application ready for production")
