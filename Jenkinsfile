@@ -44,13 +44,18 @@ pipeline {
                 print("Performing a vulnerability scan with $SCANNER")
                 print("Sending email...")
             }
-            post{
-                success{
-                    mail to: "cheeseburger199@gmail.com"
-                    subject: "Security Scan Status Email"
-                    body: "$SCANNER found no vulnerabilities within the application."
-                    print("Email sent!")
-                }
+            // post{
+            //     success{
+            //         mail to: "cheeseburger199@gmail.com"
+            //         subject: "Security Scan Status Email"
+            //         body: "$SCANNER found no vulnerabilities within the application."
+            //         print("Email sent!")
+            //     }
+            // }
+        }
+        post {
+            always {
+                emailext body: 'A Test Email 2', recipientProviders: [[$class: 'cheeseburger199@gmail.com'], [$class: 'cheeseburger199@gmail.com']], subject: 'Test 2'
             }
         }
         stage('Deploy to Staging'){
