@@ -20,13 +20,18 @@ pipeline {
                 print("Running unit tests with $TESTER")
                 print("Sending email...")
             }
-            post{
-                success{
-                    mail to: "cheeseburger199@gmail.com"
-                    subject: "Integration Test Status Email"
-                    body: "Integration tests passed by $TESTER."
-                    print("Email sent!")
-                }
+            // post{
+            //     success{
+            //         mail to: "cheeseburger199@gmail.com"
+            //         subject: "Integration Test Status Email"
+            //         body: "Integration tests passed by $TESTER."
+            //         print("Email sent!")
+            //     }
+            // }
+        }
+        post {
+            always {
+                emailext body: 'A Test Email', recipientProviders: [[$class: 'cheeseburger199@gmail.com'], [$class: 'cheeseburger199@gmail.com']], subject: 'Test'
             }
         }
         stage('Code Analysis'){
